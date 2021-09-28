@@ -1,0 +1,22 @@
+Gazebo multi-robot simulator, version 9.0.0
+Copyright (C) 2012 Open Source Robotics Foundation.
+Released under the Apache 2 License.
+http://gazebosim.org
+
+
+(1629524224 933508133) [Msg] Waiting for master.
+(1629524224 943535124) [Msg] Connected to gazebo master @ http://127.0.0.1:11345
+(1629524224 943570584) [Msg] Publicized address: 192.168.10.18
+(1629524224 945058779) Loaded .ini file from: "/home/alejandro/.gazebo/gui.ini"
+(1629524227 11716662) [Err] [Node.cc:105] No namespace found
+(1629524228 13420940) [Err] [Node.cc:105] No namespace found
+(1629524229 108202096) [Err] [Node.cc:105] No namespace found
+(1629524229 656852295) No spacenav daemon found. Spacenav functionality is disabled
+(1629524230 321064057) [Wrn] [ColladaLoader.cc:1805] Triangle input semantic: 'TEXCOORD' is currently not supported
+(1629524230 409621595) [Wrn] [ColladaLoader.cc:1805] Triangle input semantic: 'TEXCOORD' is currently not supported
+(1629524230 677393489) [Wrn] [ColladaLoader.cc:1805] Triangle input semantic: 'TEXCOORD' is currently not supported
+(1629524231 2171428) [Wrn] [ColladaLoader.cc:1805] Triangle input semantic: 'TEXCOORD' is currently not supported
+(1629524231 262714358) [Err] [ModelDatabase.cc:390] Unable to parse model.config for model[http://gazebosim.org/models/bin_4_dropping_task]
+(1629524232 561983990) [Msg] Loading heightmap: city_terrain
+(1629524232 562140130) [Msg] Loading heightmap cache data: /home/alejandro/.gazebo/paging/city_terrain/gazebo_terrain_00000000.dat
+(1629524233 563101711) [Msg] Heightmap loaded. Process took: 1.00111 seconds

@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find robotica_project)/worlds/small_city.world"/>
+  </include>
+
+    <arg name="model" default="$(find robotica_project)/urdf/my_drone.urdf.xacro"/>
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="1"/>
+    <arg name="R" default="0"/>
+    <arg name="P" default="0"/>
+    <arg name="Y" default="0"/>
+    <!-- Variables IMU -->
+    <!-- Acceleration IMU-->
+    <arg name="imu_acc_drift_x_arg" default="0"/>
+    <arg name="imu_acc_drift_y_arg" default="0"/>
+    <arg name="imu_acc_drift_z_arg" default="0"/>
+    <arg name="imu_acc_gau_noise_x_arg" default="0"/>
+    <arg name="imu_acc_gau_noise_y_arg" default="0"/>
+    <arg name="imu_acc_gau_noise_z_arg" default="0"/>
+    <!-- Variables RATE-->
+    <arg name="imu_rate_drift_x_arg" default="0"/>
+    <arg name="imu_rate_drift_y_arg" default="0"/>
+    <arg name="imu_rate_drift_z_arg" default="0"/>
+    <arg name="imu_rate_gau_noise_x_arg" default="0"/>
+    <arg name="imu_rate_gau_noise_y_arg" default="0"/>
+    <arg name="imu_rate_gau_noise_z_arg" default="0"/>
+    <!-- Variables YAW-->
+    <arg name="imu_drift_yaw_arg" default="0"/>
+    <arg name="imu_gau_noise_yaw_arg" default="0"/>
+    <!-- Variables GPS -->
+    <!-- Velocity GPS-->
+    <arg name="gps_vel_drift_x_arg" default="0"/>
+    <arg name="gps_vel_drift_y_arg" default="0"/>
+    <arg name="gps_vel_drift_z_arg" default="0"/>
+    <arg name="gps_vel_gau_noise_x_arg" default="0"/>
+    <arg name="gps_vel_gau_noise_y_arg" default="0"/>
+    <arg name="gps_vel_gau_noise_z_arg" default="0"/>
+    <!-- Variables DRIFT-->
+    <arg name="gps_drift_x_arg" default="0"/>
+    <arg name="gps_drift_y_arg" default="0"/>
+    <arg name="gps_drift_z_arg" default="0"/>
+    <!-- Variables POSISITION GAUSSIAN NOISE-->
+    <arg name="gps_pos_gau_noise_x_arg" default="0"/>
+    <arg name="gps_pos_gau_noise_y_arg" default="0"/>
+    <arg name="gps_pos_gau_noise_z_arg" default="0"/>
+
+
+
+
+    <param name="robot_description" 
+          command="$(find xacro)/xacro '$(arg model)'
+          imu_acc_drift_x_arg:='$(arg imu_acc_drift_x_arg)'
+          imu_acc_drift_y_arg:='$(arg imu_acc_drift_y_arg)'
+          imu_acc_drift_z_arg:='$(arg imu_acc_drift_z_arg)'
+          imu_acc_gau_noise_x_arg:='$(arg imu_acc_gau_noise_x_arg)'
+          imu_acc_gau_noise_y_arg:='$(arg imu_acc_gau_noise_y_arg)'
+          imu_acc_gau_noise_z_arg:='$(arg imu_acc_gau_noise_z_arg)'
+          imu_rate_drift_x_arg:='$(arg imu_rate_drift_x_arg)'
+          imu_rate_drift_y_arg:='$(arg imu_rate_drift_y_arg)'
+          imu_rate_drift_z_arg:='$(arg imu_rate_drift_z_arg)'
+          imu_rate_gau_noise_x_arg:='$(arg imu_rate_gau_noise_x_arg)'
+          imu_rate_gau_noise_y_arg:='$(arg imu_rate_gau_noise_y_arg)'
+          imu_rate_gau_noise_z_arg:='$(arg imu_rate_gau_noise_z_arg)'
+          imu_drift_yaw_arg:='$(arg imu_drift_yaw_arg)'
+          imu_gau_noise_yaw_arg:='$(arg imu_gau_noise_yaw_arg)'
+          
+          gps_vel_drift_x_arg:='$(arg gps_vel_drift_x_arg)'
+          gps_vel_drift_y_arg:='$(arg gps_vel_drift_y_arg)'
+          gps_vel_drift_z_arg:='$(arg gps_vel_drift_z_arg)'
+          gps_vel_gau_noise_x_arg:='$(arg gps_vel_gau_noise_x_arg)'
+          gps_vel_gau_noise_y_arg:='$(arg gps_vel_gau_noise_y_arg)'
+          gps_vel_gau_noise_z_arg:='$(arg gps_vel_gau_noise_z_arg)'
+          gps_drift_x_arg:='$(arg gps_drift_x_arg)'
+          gps_drift_y_arg:='$(arg gps_drift_y_arg)'
+          gps_drift_z_arg:='$(arg gps_drift_z_arg)'
+          gps_pos_gau_noise_x_arg:='$(arg gps_pos_gau_noise_x_arg)'
+          gps_pos_gau_noise_y_arg:='$(arg gps_pos_gau_noise_y_arg)'
+          gps_pos_gau_noise_z_arg:='$(arg gps_pos_gau_noise_z_arg)'"/>
+
+    <!-- Spawn simulated quadrotor uav -->
+
+    <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
+        args="-param robot_description
+        -urdf
+        -x '$(arg x)'
+        -y '$(arg y)'
+        -z '$(arg z)'
+        -R '$(arg R)'
+        -P '$(arg P)'
+        -Y '$(arg Y)'
+        -model quadrotor"
+        respawn="false" output="screen"/>
+
+    <!-- start robot state publisher -->
+   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" >
+     <param name="publish_frequency" type="double" value="50.0" />
+     <param name="tf_prefix" type="string" value="" />
+   </node>
+
+   <node name="ground_truth_to_tf" pkg="message_to_tf" type="message_to_tf" output="screen">
+     <!-- <param name="odometry_topic" value="ground_truth/state" /> -->
+     <param name="odometry_topic" value="odometry/filtered" />
+     <param name="frame_id" value="odom" />
+   </node>
+  
+  <node name="static_tf_map_odom" pkg="tf2_ros" 
+        type="static_transform_publisher"
+        args="0 0 0 0 0 0 odom map"/>
+
+
+  <node type="point_cloud2_assembler" pkg="laser_assembler" name="my_assembler" output="screen">
+    <remap from="cloud" to="/velodyne_points"/>
+    <param name="max_clouds" type="int" value="200" />
+    <param name="fixed_frame" type="string" value="odom" />
+  </node>
+
+   
+   <!-- <remap from="/raw_imu" to="/ardrone/imu"/>  -->
+  <!-- <node name="hector_pose_estimation" pkg="hector_pose_estimation" type="pose_estimation" output="screen"/> -->
+  
+  <node pkg="robot_localization" type="ekf_localization_node"
+     name="ekf_localization">
+
+    <param name="frequency" value="60"/>
+    <param name="sensor_timeout" value="2.0"/>
+    <param name="two_d_mode" value="false"/>
+    <param name="map_frame" value="map"/>
+    <param name="odom_frame" value="odom"/>
+    <param name="base_link_frame" value="base_link"/>
+    <param name="world_frame" value="odom"/>
+    <param name="publish_tf" value="true"/>
+    <param name="imu0" value="ardrone/imu"/>
+
+    <rosparam param="imu0_config">[false, false, false,
+                                   true,  true,  true,
+                                   false,  false,  false,
+                                   true,  true,  true,
+                                   false,  false,  false]</rosparam>
+    <param name="imu0_differential" value="false"/>
+    <param name="imu0_remove_gravitational_acceleration" value="true"/>
+
+    <param name="odom0" value="/odometry/gps"/>
+    <rosparam param="odom0_config">[true,  true,  true,
+                                   false, false, false,
+                                   false, false, false,
+                                   false, false, false,
+                                   false, false, false]</rosparam>
+    <param name="odom0_differential" value="false"/>
+
+    <param name="odom1" value="/my_odom"/>
+    <rosparam param="odom1_config">[true,  false,  true,
+                                   false, false, true,
+                                   false, false, false,
+                                   false, false, false,
+                                   false, false, false]</rosparam>
+    <param name="odom1_differential" value="false"/>
+  </node>
+
+  <node pkg="robot_localization" type="navsat_transform_node"
+      name="navsat_transform_node" respawn="true" >
+    <param name="magnetic_declination_radians" value="0"/>
+    <param name="broadcast_utm_transform" value="false"/>
+    <param name="wait_for_datum" value="false"/>
+	<param name="zero_altitude " value="false"/>
+  <param name="yaw_offset " value="1.5707963"/>
+    <!-- <rosparam param="datum">[0, 0, 0.0, odom, base_stabilized]</rosparam> -->  
+    <!-- Inputs -->
+  <remap from="imu/data" to="ardrone/imu" />
+  <remap from="gps/fix" to="fix" />
+</node>
+  
+  
+  <node pkg="robotica_project" type="call_assembler.py" name="test_client" output="screen" /> 
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robotica_project)/display_rviz.rviz"/>
+  
+</launch>

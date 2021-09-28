@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<robot name="quadrotor_hokuyo_utm30lx"
+xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
+
+    <xacro:arg name="gpu" default="false"/>
+	<xacro:property name="gpu" value="$(arg gpu)" />
+	<xacro:arg name="organize_cloud" default="false"/>
+	<xacro:property name="organize_cloud" value="$(arg organize_cloud)" />
+   
+    <property name="M_PI" value="3.1415926535897931" />
+    
+    <!-- Included URDF Files -->
+    <xacro:include filename="$(find cvg_sim_gazebo)/urdf/quadrotor_sensors.urdf.xacro" />
+    
+
+    <xacro:include filename="$(find robotica_project)/urdf/my_velodyne.xacro"/>
+  	<xacro:VLP-16 parent="base_link" name="velodyne" topic="/velodyne_points" organize_cloud="${organize_cloud}" hz="10" samples="440" gpu="${gpu}">
+    <!-- <origin xyz="-0.025 0 -0.1" rpy="0 1.57 0" /> -->
+    <origin xyz="0 0.1 0.0025" rpy="-1.57 -1.57 0" />
+  	</xacro:VLP-16>
+
+</robot>
+  

@@ -1,0 +1,360 @@
+FloatLayout:
+
+    MDLabel:
+        id: my_label
+        text: "Parámetros sensor IMU"
+        halign: "center"
+        size_hint: 0.225,0.10
+        pos_hint: {"center_x": 0.2125, "center_y": 0.95}
+    
+    MDLabel:
+        text: "accelDrift X"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.1, "center_y": 0.85}
+
+    MDTextFieldRect:
+        id: imu_accelDrift_x
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.325, "center_y": 0.85}
+
+    MDLabel:
+        text: "accelDrift Y"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.1, "center_y": 0.79}
+
+    MDTextFieldRect:
+        id: imu_accelDrift_y
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.325, "center_y": 0.79}
+
+    MDLabel:
+        text: "accelDrift Z"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.1, "center_y": 0.73}
+
+    MDTextFieldRect:
+        id: imu_accelDrift_z
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.325, "center_y": 0.73}
+
+    MDLabel:
+        text: "accelGaussianNoise X"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.1, "center_y": 0.67}
+
+    MDTextFieldRect:
+        id: accelGaussianNoise_x
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.325, "center_y": 0.67}
+
+    MDLabel:
+        text: "accelGaussianNoise Y"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.1, "center_y": 0.61}
+
+    MDTextFieldRect:
+        id: accelGaussianNoise_y
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.325, "center_y": 0.61}
+
+    MDLabel:
+        text: "accelGaussianNoise Z"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.1, "center_y": 0.55}
+
+    MDTextFieldRect:
+        id: accelGaussianNoise_z
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.325, "center_y": 0.55}
+
+    MDLabel:
+        text: "rateDrift X"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.1, "center_y": 0.49}
+
+    MDTextFieldRect:
+        id: rateDrift_x
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.325, "center_y": 0.49}
+
+    MDLabel:
+        text: "rateDrift Y"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.1, "center_y": 0.43}
+
+    MDTextFieldRect:
+        id: rateDrift_y
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.325, "center_y": 0.43}
+
+    MDLabel:
+        text: "rateDrift Z"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.1, "center_y": 0.37}
+
+    MDTextFieldRect:
+        id: rateDrift_z
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.325, "center_y": 0.37}
+
+    MDLabel:
+        text: "rateGaussianNoise X"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.1, "center_y": 0.31}
+
+    MDTextFieldRect:
+        id: rateGaussianNoise_x
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.325, "center_y": 0.31}
+    
+    MDLabel:
+        text: "rateGaussianNoise Y"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.1, "center_y": 0.25}
+
+    MDTextFieldRect:
+        id: rateGaussianNoise_y
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.325, "center_y": 0.25}
+
+    MDLabel:
+        text: "rateGaussianNoise Z"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.1, "center_y": 0.19}
+
+    MDTextFieldRect:
+        id: rateGaussianNoise_z
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.325, "center_y": 0.19}
+
+    MDLabel:
+        text: "yawDrift"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.1, "center_y": 0.13}
+
+    MDTextFieldRect:
+        id: yawDrift
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.325, "center_y": 0.13}
+
+    MDLabel:
+        text: "yawGaussianNoise"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.1, "center_y": 0.07}
+
+    MDTextFieldRect:
+        id: yawGaussianNoise
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.325, "center_y": 0.07}
+    
+    MDLabel:
+        text: "Parámetros sensor GPS"
+        halign: "center"
+        size_hint: 0.225,0.10
+        pos_hint: {"center_x": 0.6525, "center_y": 0.95}
+
+    MDLabel:
+        text: "velocityDrift X"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.55, "center_y": 0.89}
+
+    MDTextFieldRect:
+        id: velocityDrift_x
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.775, "center_y": 0.89}
+
+    MDLabel:
+        text: "velocityDrift Y"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.55, "center_y": 0.83}
+
+    MDTextFieldRect:
+        id: velocityDrift_y
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.775, "center_y": 0.83}
+
+    MDLabel:
+        text: "velocityDrift Z"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.55, "center_y": 0.77}
+
+    MDTextFieldRect:
+        id: velocityDrift_z
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.775, "center_y": 0.77}
+
+    MDLabel:
+        text: "velocityGaussianNoise X"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.55, "center_y": 0.71}
+
+    MDTextFieldRect:
+        id: velocityGaussianNoise_x
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.775, "center_y": 0.71}
+
+    MDLabel:
+        text: "velocityGaussianNoise Y"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.55, "center_y": 0.65}
+
+    MDTextFieldRect:
+        id: velocityGaussianNoise_y
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.775, "center_y": 0.65}
+
+    MDLabel:
+        text: "velocityGaussianNoise Z"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.55, "center_y": 0.59}
+
+    MDTextFieldRect:
+        id: velocityGaussianNoise_z
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.775, "center_y": 0.59}
+
+    MDLabel:
+        text: "drift X"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.55, "center_y": 0.53}
+
+    MDTextFieldRect:
+        id: drift_x
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.775, "center_y": 0.53}
+
+    MDLabel:
+        text: "drift Y"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.55, "center_y": 0.47}
+
+    MDTextFieldRect:
+        id: drift_y
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.775, "center_y": 0.47}
+
+    MDLabel:
+        text: "drift Z"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.55, "center_y": 0.41}
+
+    MDTextFieldRect:
+        id: drift_z
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.775, "center_y": 0.41}
+    
+    MDLabel:
+        text: "gaussianNoise X"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.55, "center_y": 0.35}
+
+    MDTextFieldRect:
+        id: gaussianNoise_x
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.775, "center_y": 0.35}
+
+    MDLabel:
+        text: "gaussianNoise Y"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.55, "center_y": 0.29}
+
+    MDTextFieldRect:
+        id: gaussianNoise_y
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.775, "center_y": 0.29}
+
+    MDLabel:
+        text: "gaussianNoise Z"
+        halign: "center"
+        size_hint: 0.2,0.10
+        pos_hint: {"center_x": 0.55, "center_y": 0.23}
+
+    MDTextFieldRect:
+        id: gaussianNoise_z
+        hint_text: "0.0"
+        mode: "rectangle"
+        size_hint: 0.2,0.05
+        pos_hint: {"center_x": 0.775, "center_y": 0.23}
+
+
+    MDRaisedButton:
+        text: "Simular"
+        md_bg_color: 0, 0.8, 0, 1
+        size_hint: 0.20,0.1
+        pos_hint: {"center_x": 0.70, "center_y": 0.12}
+        on_press: app.simulate(*args)

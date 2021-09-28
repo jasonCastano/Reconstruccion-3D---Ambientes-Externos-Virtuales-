@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <arg name="path_gt" default="/home/alejandro/catkin_ws/src/robotica_project/data/redcolsi/120821/paths/" />
+  <arg name="path_rl" default="/home/alejandro/catkin_ws/src/robotica_project/data/redcolsi/odometria/robot_localization/paths/" />
+  <arg name="path_sam" default="/home/alejandro/catkin_ws/src/robotica_project/data/redcolsi/odometria/liosam/paths/" />
+  <arg name="file_1" default="ruido_imu_gps_gt" />
+  <arg name="file_2" default="ruido_imu_gps" />
+  <arg name="file_3" default="ruido_imu_gps" />
+  <node pkg="robotica_project" type="csv_writer2.py" name="csv_writer2" output="screen" launch-prefix="gnome-terminal --command"/>
+  <node pkg="rosbag" type="play" name="player" output="screen" args="$(arg path_gt)$(arg file_1).bag $(arg path_rl)$(arg file_2).bag $(arg path_sam)$(arg file_3).bag"/>
+</launch>
