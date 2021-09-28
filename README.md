@@ -14,4 +14,9 @@ sudo apt-get install ros-melodic-laser-assembler
 El directorio **.gazebo** debe ubicarse en /home/  
 Los demás directorios deben ser ubicados en el espacio de trabajo de ROS. (catkin_ws)
 
+Dependencias para utilizar interfaz gráfica: 
+
+Kivy (Python3): https://kivy.org/doc/stable/gettingstarted/installation.html
+KivyMD (Python3): https://kivymd.readthedocs.io/en/latest/getting-started/
+
 
