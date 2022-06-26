@@ -19,7 +19,6 @@ rows = []
 
 def callback(gt, rl, sam):
     global rows
-    print("TE CHINGUE")
     x_gt = gt.poses[-1].pose.position.x 
     y_gt = gt.poses[-1].pose.position.y
     z_gt = gt.poses[-1].pose.position.z
